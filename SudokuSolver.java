@@ -5,18 +5,7 @@ public class SudokuSolver {
     static HashSet<Integer>[] rowSets = new HashSet[9];
     static HashSet<Integer>[] colSets = new HashSet[9];
     static HashSet<Integer>[] boxSets = new HashSet[9];
-    
-    /*
-     * Good CSS professors:
-     * Dimpsey
-     * Pisan
-     * Bernstein
-     * Dupuis
-     * Chenault
-     */
-    
-    
-    
+ 
     public static void main(String[] args) {}
 
     public static void solveSudoku(int[][] board, SudokuGUI gui) {
