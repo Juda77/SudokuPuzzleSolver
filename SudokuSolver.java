@@ -2,25 +2,21 @@ import java.util.HashSet;
 
 public class SudokuSolver {
  
+    //trackers for spots that are taken
     static HashSet<Integer>[] rowSets = new HashSet[9];
     static HashSet<Integer>[] colSets = new HashSet[9];
     static HashSet<Integer>[] boxSets = new HashSet[9];
  
     public static void main(String[] args) {}
 
-    public static void solveSudoku(int[][] board, SudokuGUI gui) {
-        
+    public static void solveSudoku(int[][] board, SudokuGUI gui) {        
         initializeSets(board);
-        
         boolean sudokuPuzzleIsSolvable = traverseBoard(board, 0, 0);
         if (sudokuPuzzleIsSolvable) {
-  
         	gui.presentSolvedPuzzleGUI(board);
-
         } else {
             System.out.println("Sudoku puzzle is not solvable");
         }
- 
     }
     
     private static boolean traverseBoard(int[][] board, int row, int col) {
@@ -34,15 +30,17 @@ public class SudokuSolver {
         } else if (board[row][col] == 0) {
             
             int boxIndex = determineBox(row, col);
-            //find a valid current spot
+         
+            //find a valid current spot(iterate through all possibilities
             for (int numChoice = 1; numChoice <= 9; numChoice++) {
-    
+
+                //check that the current choice is valid by Sudoku rules
                 boolean numChoiceIsValid = !rowSets[row].contains(numChoice) 
                     && !colSets[col].contains(numChoice) 
                     && !boxSets[boxIndex].contains(numChoice);
                 
                 boolean allChoicesBeyondAreValid = false;
-                if (numChoiceIsValid) {
+                if (numChoiceIsValid) { //move forward case
                     board[row][col] = numChoice;
                     rowSets[row].add(numChoice);
                     colSets[col].add(numChoice);
@@ -50,7 +48,7 @@ public class SudokuSolver {
                     allChoicesBeyondAreValid = traverseBoard(board, row, col + 1);
                     if (allChoicesBeyondAreValid) {
                         return true;
-                    } else {
+                    } else { //backtrack case
                         board[row][col] = 0;
                         rowSets[row].remove(numChoice);
                         colSets[col].remove(numChoice);
@@ -58,13 +56,9 @@ public class SudokuSolver {
 
                     }
                 }
-                
-            }
-                       
-        }
-        
+            }                 
+        }     
         return false;
-    	
     }
 
     private static int determineBox(int row, int col) {
@@ -96,35 +90,25 @@ public class SudokuSolver {
         } else {
             return 8;
         }
-        
     }
 
     private static void initializeSets(int[][] board) {
 
         for (int i = 0; i < 9; i++) {
-
             rowSets[i] = new HashSet<Integer>();
             colSets[i] = new HashSet<Integer>();
             boxSets[i] = new HashSet<Integer>();
-
         }
     
         for (int i = 0; i < board.length; i++) {
-    		for (int j = 0; j < board[i].length; j++) {
-    			
-    			int cell = board[i][j];
-    			if (cell != 0) {
-    				
-    				rowSets[i].add(cell);
-    				colSets[j].add(cell);
-    				boxSets[determineBox(i, j)].add(cell);
-    				
-    			}
-    			
-    		}
-    		
-    	}
-        
+           for (int j = 0; j < board[i].length; j++) {
+             int cell = board[i][j];
+             if (cell != 0) {
+              rowSets[i].add(cell);
+              colSets[j].add(cell);
+              boxSets[determineBox(i, j)].add(cell);
+             }
+           }
+        }     
     }
-
 }
