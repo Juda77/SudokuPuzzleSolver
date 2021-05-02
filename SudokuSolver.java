@@ -1,5 +1,6 @@
 import java.util.HashSet;
 
+//The sole purpose of this class is to solve sudoku puzzles
 public class SudokuSolver {
 
     //trackers for spots that are taken
@@ -119,7 +120,7 @@ public class SudokuSolver {
      * initialize our sets according to the board
      * that's taken in from the user. All the numbers that are on
      * the user's board will be placed before the actual solver algorithm
-     * starts.
+     * starts
      * @param board - the input board from the user
      */
     private static void initializeSets(int[][] board) {
