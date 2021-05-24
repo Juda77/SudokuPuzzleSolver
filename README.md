@@ -4,6 +4,15 @@ Java program which takes a sudoku puzzle from the user through a GUI(graphical u
 </p>
 <header><h3>Brief Algorithm Analysis</h3><header>
 <p>
-  My algorithm runs, in the worst possible case(where we are unable to find a solution to the board), <b>O(9^n)</b>, where n = number of open spots at the start. This is because I use recursive backtracking, and the worst scenario occurs when we exhaust eeeevvvvveerrrryyy possible combination of numbers on the board. Since each spot has 9 different possible choices, the runtime is <b>9^(number of spots)</b>.
+  My algorithm runs, in the worst possible case(where we are unable to find a solution to the board), <b>O(9^n)</b>, where n = number of open spots at the start. This is because I use recursive backtracking, and the worst scenario occurs when we exhaust eeeevvvvveerrrryyy possible combination of numbers on the board. Since each spot has 9 different possible choices, the runtime is <b>9^(number of spots)</b>. There are also three constant factors involved: 
+</p>
+  <ul>
+    <li>Traversing the GUI to obtain the input board values</li>
+    <li>Traversing the input board values to initialize our sets</li>
+    <li>Traversing the outcome board to display the solution on the GUI</li>
+  </ul>
+<p>
+  But, since those constant factors cumulate to a total factor of 243(3 * 81, since there are 81 spots on a sudoku board, and we're traversing it three times), then 
+  we can simply ignore that factor, since it pales in comparison to the exponential runtime factor.
 </p>
 
