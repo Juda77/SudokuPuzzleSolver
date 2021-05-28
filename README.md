@@ -15,4 +15,7 @@ Java program which takes a sudoku puzzle from the user through a GUI(graphical u
   But, since those constant factors cumulate to a total and constant factor of 243(3 * 81, since there are 81 spots on a sudoku board, and we're traversing it three times), then 
   we can simply ignore that factor, since it pales in comparison to the exponential runtime factor.
 </p>
-
+<b>Cool Note:</b> 
+<p>
+  Solving a sudoku puzzle is an NP problem because its runtime is exponential(9^n), and it's relatively fast to check that the solution is correct.
+</p>
