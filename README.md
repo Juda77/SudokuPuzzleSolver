@@ -4,17 +4,14 @@ Java program which takes a sudoku puzzle from the user through a GUI(graphical u
 </p>
 <header><h3>Brief Runtime Analysis</h3><header>
 <p>
-  My algorithm runs, in the worst possible case(where we are unable to find a solution to the board), in <b>O(9^n)</b> time, where n = number of open spots at the start. This is because I use recursive backtracking, and the worst scenario occurs when we exhaust eeeevvvvveerrrryyy possible combination of numbers on the board. Since each spot has 9 different possible choices, the runtime is <b>9^(number of spots)</b>. There are also three constant factors involved: 
+  My algorithm runs, in the worst possible case(where we are unable to find a solution to the board), in <b>O(9^n)</b> time, where n = number of open spots at the start. This is because I use recursive backtracking, and the worst scenario occurs when we exhaust eeeevvvvveerrrryyy possible combination of numbers on the board. Since each spot has 9 different possible choices, the runtime is <b>9^(number of spots)</b>. There are also constant factors involved(like traversing the GUI to get the user's input board and traversing the GUI again to present the solution to the user), but those factors pale in comparison to the exponential runtime factor, so they are ignored.
 </p>
+  <h3>Optimizations to be incorporated later:</h3>
   <ul>
-    <li>Traversing the GUI to obtain the input board values: 81 operations<b>O(1)</b></li>
-    <li>Traversing the input board values to initialize our sets: 81 operations<b>O(1)</b></li>
-    <li>Traversing the outcome board to display the solution on the GUI: 81 operations<b>O(1)</b></li>
+    <li>https://norvig.com/sudoku.html</li>
+    <li>https://en.wikipedia.org/wiki/Exact_cover#Sudoku</li>
   </ul>
-<p>
-  But, since those constant factors cumulate to a total and constant factor of 243(3 * 81, since there are 81 spots on a sudoku board, and we're traversing it three times), then 
-  we can simply ignore that factor, since it pales in comparison to the exponential runtime factor.
-</p>
+
 <b>Cool Note:</b> 
 <p>
   Solving a sudoku puzzle is an NP problem because its runtime is exponential(9^n), and it's relatively fast to check that the solution is correct(81 steps, since we have to check the whole board).
