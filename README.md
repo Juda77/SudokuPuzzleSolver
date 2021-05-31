@@ -14,5 +14,5 @@ Java program which takes a sudoku puzzle from the user through a GUI(graphical u
 
 <b>Cool Note:</b> 
 <p>
-  Solving a sudoku puzzle is an NP problem because its runtime is exponential(9^n), and it's relatively fast to check that the solution is correct(81 steps, since we have to check the whole board).
+  Solving a sudoku puzzle is an iconic NP-complete problem because its runtime is exponential(9^n), and it's relatively fast to check that the solution is correct(81 steps, since we have to check the whole board).
 </p>
