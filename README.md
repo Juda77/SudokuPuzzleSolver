@@ -11,5 +11,5 @@ Java program which takes a sudoku puzzle from the user through a GUI(graphical u
 
 <b>Cool Note:</b> 
 <p>
-  Solving an n x n sudoku puzzle is an iconic NP-complete problem(<a href="https://en.wikipedia.org/wiki/Exact_cover">Exact Cover</a>) because its runtime is exponential(9^n), and it's relatively fast to check that the solution is correct(81 steps, since we have to check the whole board).
+  Solving an n x n sudoku puzzle is an iconic NP-complete problem(<a href="https://en.wikipedia.org/wiki/Exact_cover">Exact Cover</a>). It's runtime is exponential(9^n), and it's relatively fast to check that the solution is correct(81 steps, since we have to check the whole board).
 </p>
