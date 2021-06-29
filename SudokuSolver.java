@@ -7,6 +7,21 @@ public class SudokuSolver {
     static HashSet<Integer>[] rowSets = new HashSet[9];
     static HashSet<Integer>[] colSets = new HashSet[9];
     static HashSet<Integer>[] boxSets = new HashSet[9];
+    
+    // random enum notes lol
+    // enums are used to store a collection of constants
+    enum Book {
+        HarryPotter("Fantasy"), Flow("Psychology"), Logicomix("Math");
+        String genre;
+        
+        public Book(String genre) {
+            this.genre = genre;
+        }
+    }
+    
+    public static void enumPractice() {
+     System.out.println(Book.HarryPotter.genre); // -> prints "Fantasy"   
+    }
 
     public static void main(String[] args) {}
 
